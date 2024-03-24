@@ -1,0 +1,28 @@
+{
+    "name": "GPT Extension",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+      "default_title": "Click to show an alert"
+    },
+    "icons": {
+      "48": "/src/logo.png",
+      "128": "/imagesrcs/logo.png"
+    },
+    "description": "ChatGPT chat extended window",
+    "permissions": ["activeTab", "webNavigation", "webRequest"],
+    "content_scripts": [
+      {
+        "matches": ["https://chat.openai.com/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "externally_connectable": {
+      "matches": ["*://*.google.com/*"]
+    },
+    "host_permissions": ["*://*/*"],
+    "background": {
+      "service_worker": "background.js"
+    }
+  }
+  
